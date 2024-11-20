@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faulty Calculator</title>
+</head>
+<body>
+    <h1>Faulty Calculator</h1>
+    <button onclick="startCalculator()">Start Calculator</button>
+    <p id="result"></p>
+</body>
+<script>
+    function startCalculator() {
+        let a = parseFloat(prompt("Enter first number"));
+        let b = parseFloat(prompt("Enter second number"));
+        let operation = prompt("What operation do you want to perform? (+, -, *, /)");
+        let probab = Math.random();
+
+        let result = "";
+        if (probab > 0.1) {
+            if (operation === "+") {
+                result = `Faulty result: ${a - b}`;
+            } else if (operation === "-") {
+                result = `Faulty result: ${a / b}`;
+            } else if (operation === "*") {
+                result = `Faulty result: ${a + b}`;
+            } else if (operation === "/") {
+                result = `Faulty result: ${a ** b}`;
+            } else {
+                result = "Invalid operation.";
+            }
+        } else {
+            if (operation === "+") {
+                result = `Correct result: ${a + b}`;
+            } else if (operation === "-") {
+                result = `Correct result: ${a - b}`;
+            } else if (operation === "*") {
+                result = `Correct result: ${a * b}`;
+            } else if (operation === "/") {
+                result = `Correct result: ${a / b}`;
+            } else {
+                result = "Invalid operation.";
+            }
+        }
+
+        document.getElementById("result").textContent = result;
+    }
+</script>
+</html>
